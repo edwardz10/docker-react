@@ -1,0 +1,10 @@
+sudo: required
+services:
+  - docker
+
+before_install:
+  - docker build -t edwardz10/docker-rect -f Dockerfile.dev .
+
+script:
+  - docker run edwardz10/docker-rect npm run test -- --coverage
+
